@@ -22,9 +22,6 @@ export default new Vuex.Store({
 		},
 	},
 	mutations: {
-		replaceStocks(state, newStocks) {
-			state.stocks = newStocks
-		},
 		buyStock(state, { name, amount, price }) {
 			var stockInPortfolio = state.portfolio.find((stock) => stock.name == name)
 			if (stockInPortfolio) {
@@ -57,6 +54,12 @@ export default new Vuex.Store({
 				return stock
 			})
 			commit('replaceStocks', updatedStocks)
+		},
+		testAction(state, payload) {
+			console.log(typeof state)
+
+			console.log('state', state)
+			console.log('payload', payload)
 		},
 	},
 	modules: {},
